@@ -1,0 +1,56 @@
+<section class="hero">
+  <span class="eyebrow">Localhost-only API Security</span>
+  <h1>Global Energy Exchange</h1>
+  <p class="lede">
+    This Express app layers IP filtering, CORS, rate limiting, JWT Bearer auth,
+    and Basic Auth to secure the oil price endpoints.
+  </p>
+</section>
+
+<section class="card-grid">
+  <article class="card">
+    <h2>1. Generate a JWT</h2>
+    <p>Send your username and password to the token endpoint.</p>
+    <pre><code>POST /auth/token
+Content-Type: application/json
+
+{
+  "username": "energy-admin",
+  "password": "CrudeOil2026!"
+}</code></pre>
+  </article>
+
+  <article class="card">
+    <h2>2. Call the API</h2>
+    <p>Use the returned JWT in the Authorization header.</p>
+    <pre><code>GET /api/oil-prices
+Authorization: Bearer &lt;your_jwt_token&gt;</code></pre>
+  </article>
+
+  <article class="card">
+    <h2>3. Open the Dashboard</h2>
+    <p>The dashboard stays on Basic Auth as a second access mode.</p>
+    <pre><code>GET /dashboard
+Username: energy-admin
+Password: CrudeOil2026!</code></pre>
+    <p><strong>Important:</strong> the username includes a hyphen and the password is case-sensitive.</p>
+  </article>
+</section>
+
+<section class="info-panel">
+  <div>
+    <h2>Security Stack</h2>
+    <ul class="plain-list">
+      <li>IP Filter: <code>127.0.0.1</code> and <code>::1</code> only</li>
+      <li>CORS Origin: {{allowedOrigin}}</li>
+      <li>Rate Limit: 10 requests per minute</li>
+      <li>API Auth: JWT Bearer token</li>
+      <li>Dashboard Auth: HTTP Basic Auth</li>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <a class="button" href="/dashboard">Open Dashboard</a>
+    <a class="button button-secondary" href="/logged-out">View Logout Screen</a>
+  </div>
+</section>

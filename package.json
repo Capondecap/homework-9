@@ -1,0 +1,26 @@
+{
+  "name": "express-middleware-assignment",
+  "version": "1.0.0",
+  "description": "Express.js middleware assignment for securing an energy API.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "check": "node --check app.js"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "security",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express-handlebars": "^8.0.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

@@ -1,0 +1,34 @@
+<section class="hero">
+  <span class="eyebrow">Protected Dashboard</span>
+  <h1>{{prices.market}}</h1>
+  <p class="lede">Local monitoring view for current energy pricing.</p>
+</section>
+
+<section class="meta-row">
+  <span class="pill">Updated: {{prices.last_updated}}</span>
+  <span class="pill">Currency: {{prices.currency}}</span>
+  <a class="pill pill-link" href="/logout">Logout</a>
+</section>
+
+<section class="table-card">
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each prices.data}}
+        <tr>
+          <td>{{symbol}}</td>
+          <td>{{name}}</td>
+          <td>${{formatPrice price}}</td>
+          <td class="{{changeClass change}}">{{formatChange change}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

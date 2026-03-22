@@ -1,0 +1,253 @@
+:root {
+  color-scheme: light;
+  --page: #efe7dc;
+  --page-glow: rgba(217, 119, 6, 0.18);
+  --surface: rgba(255, 252, 247, 0.9);
+  --surface-strong: #fffdf9;
+  --ink: #182635;
+  --muted: rgba(24, 38, 53, 0.72);
+  --line: #e6d7c0;
+  --accent: #bf5f11;
+  --accent-strong: #8f3f06;
+  --up: #047857;
+  --down: #b91c1c;
+  --shadow: 0 20px 45px rgba(24, 38, 53, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, var(--page-glow), transparent 35%),
+    linear-gradient(135deg, #f7f0e7 0%, var(--page) 100%);
+}
+
+.shell {
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+}
+
+.hero {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(191, 95, 17, 0.1);
+  color: var(--accent-strong);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.02;
+}
+
+h2 {
+  margin-bottom: 14px;
+  font-size: 1.35rem;
+}
+
+p {
+  margin-top: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.lede {
+  max-width: 720px;
+  margin-top: 14px;
+  font-size: 1.05rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.card,
+.table-card,
+.info-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.card,
+.info-panel {
+  padding: 24px;
+}
+
+.table-card {
+  padding: 18px;
+}
+
+pre {
+  margin: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff8ee;
+  border: 1px solid var(--line);
+  overflow-x: auto;
+}
+
+code {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.95rem;
+}
+
+.info-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+.plain-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button,
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fffaf3;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.button:hover,
+.pill-link:hover {
+  transform: translateY(-1px);
+  background: var(--accent-strong);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--accent-strong);
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff8ee;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.pill-link {
+  border-color: var(--accent);
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.price-table th,
+.price-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+.price-table th {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #f8ecda;
+}
+
+.price-table tr:last-child td {
+  border-bottom: none;
+}
+
+.price-table tbody tr:nth-child(even) {
+  background: rgba(255, 248, 238, 0.75);
+}
+
+.up {
+  color: var(--up);
+  font-weight: 700;
+}
+
+.down {
+  color: var(--down);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 28px 16px 40px;
+  }
+
+  .card,
+  .info-panel,
+  .table-card {
+    padding: 18px;
+  }
+
+  .price-table th,
+  .price-table td {
+    padding: 12px;
+    font-size: 0.94rem;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .button,
+  .button-secondary,
+  .pill-link {
+    width: 100%;
+  }
+}
